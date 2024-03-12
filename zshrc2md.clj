@@ -19,9 +19,12 @@
   [md-list]
   (doseq [li md-list]
     (let [lis  (map-indexed vector li)]
+      (println "\n")
       (doseq [[n l] lis]
         (println
-          (str  (clojure.string/join "" (repeat n "    ")) "- " l))))))
+          (str  (clojure.string/join "" (repeat (inc n) "    ")) (if (= n 0) "- ^ "  "- ") l))))))
+
+(println "- zshrc 碎碎念")
 
 (md-list->print-outline (zshrc-file->list "/Users/lisp/.zshrc"))
 
