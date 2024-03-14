@@ -3,10 +3,16 @@
 
 ---
 
-- [x] 写一个zshrc记录笔记解析为大纲markdown的脚本
-  - [x] Clojure版本已经完成: parse_zshrc_note_to_md_outline.clj (lambda化快速演算) => bb 版本：`./zshrc2md.clj`
+- [x] TODO1 写一个zshrc记录笔记解析为大纲markdown的脚本
+  - [x] Clojure版本: parse_zshrc_note_to_md_outline.clj (lambda化快速演算) => bb 版本：`./zshrc2md.clj`
   - [x] Go版本： 第一个实用的go写的zshrc笔记解析为markdown大纲 zshrc2md.go
+- [ ] TODO2 写一个outline文本解析为hash tree的格式
+  - [] Clojure版本：递归函数式来完成parse_outline.clj
+  - [] Go版本：for循环过程式来表达
 
+
+--- 
+* TODO1: 补充
 格式如：
 ```bash
 ## aaa
@@ -22,4 +28,17 @@
         - ccc
 - ee
     - fff
+```
+* TODO2: 补充
+```md
+- aaabbb
+    - bbb
+        - ccc
+- ee
+    - fff
+```
+=>
+```clojure
+[{:text "aaabbb" :child {:text "bbb" :child {:text "ccc" :child {}}}}
+ {:text "ee" :child {:text "fff" :child {}}}]
 ```
